@@ -34,7 +34,8 @@ public class Reporter {
     }
 
 
-    @SuppressWarnings("UnusedReturnValue") //return value is used by the annotation. supressing warning for static code analysis
+    @SuppressWarnings({"UnusedReturnValue", "unused"})
+    //return value is used by the annotation. supressing warning for static code analysis
     @Attachment(value = "Screenshot {label}", type = "image/png")
     private static byte[] takeScreenShort(TakesScreenshot driver, String label) {
         return driver.getScreenshotAs(OutputType.BYTES);

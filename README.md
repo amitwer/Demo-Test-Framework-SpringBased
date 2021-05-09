@@ -11,7 +11,7 @@ In general, the framework has (currently) the following components:
 * Selenium for driving a browser
 * A Three tiered testing structure: 
   + Atomic actions - clicking through a page or sending a REST request. 
-  + Business flows - Composite actions involving multiple atomic action. These represents the business logic of the system. 
+  + Business flows - Composite actions involving multiple atomic action. These represent the business logic of the system. 
   + Tests - Scenarios, or "test cases", they are usually composed of at least one business flow
   
   

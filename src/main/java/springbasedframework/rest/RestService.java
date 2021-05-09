@@ -8,20 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
 @Service
 public class RestService {
-    @Step("Checking if <{email}> has been PWNED")
-    public List<PwndEntry> haveIBeenPwnd(String email) {
+    @Step("Checking which LOTR books are there")
+    public LotrBooks allLotrBooks() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.add("User-Agent","test-pwnage-poc-thank-you");
         HttpEntity<String> httpEntity = new HttpEntity<>(headers);
-        ResponseEntity<PwndEntry[]> pwnedEntries = restTemplate.exchange("https://haveibeenpwned.com/api/v2/breachedaccount/" + email, HttpMethod.GET, httpEntity, PwndEntry[].class);
-        return Arrays.asList(Objects.requireNonNull(pwnedEntries.getBody()));
+        ResponseEntity<LotrBooks> lotrBooks = restTemplate.exchange("https://the-one-api.dev/v2/book", HttpMethod.GET, httpEntity, LotrBooks.class);
+        return (lotrBooks.getBody());
 
     }
 }
